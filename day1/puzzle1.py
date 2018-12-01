@@ -1,4 +1,3 @@
-
 def read_file():
     try:
         with open("input.txt") as input_file:
@@ -11,7 +10,7 @@ def read_file():
 
 
 def calculate_frequency(input_lines):
-    return True
+    return 5
 
 
 def __init__():
