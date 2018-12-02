@@ -1,12 +1,9 @@
 def read_file():
-    try:
-        with open("input.txt") as input_file:
-            input_lines = []
-            for line in input_file:
-                input_lines.append(line)
-            return input_lines
-    except Exception:
-        print("Exception: {}".format(Exception))
+    with open("input.txt") as change_list:
+        input_lines = []
+        for line in change_list:
+            input_lines.append(line)
+    return input_lines
 
 
 def calculate_frequency(base_frequency, input_lines):
@@ -18,9 +15,6 @@ def calculate_frequency(base_frequency, input_lines):
         elif line[0] == "-":
             line_split = line.split("-")
             new_frequency -= int(line_split[1])
-        else:
-            print("No + or - character detected at start of line")
-    print("new_frequency = {}".format(new_frequency))
     return new_frequency
 
 
