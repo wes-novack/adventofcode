@@ -24,6 +24,7 @@ def calculate_frequency(base_frequency, input_lines):
     return new_frequency
 
 
-def __init__():
-    if __name__ == "__main__":
-        pass
+if __name__ == "__main__":
+    input_lines = read_file()
+    result = calculate_frequency(0, input_lines)
+    print(result)
