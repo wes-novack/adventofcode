@@ -5,8 +5,8 @@ def read_file():
             for line in input_file:
                 input_lines.append(line)
             return input_lines
-    except:
-        print("Exception opening file!")
+    except Exception:
+        print("Exception: {}".format(Exception))
 
 
 def calculate_frequency(base_frequency, input_lines):
@@ -22,10 +22,6 @@ def calculate_frequency(base_frequency, input_lines):
             print("No + or - character detected at start of line")
     print("new_frequency = {}".format(new_frequency))
     return new_frequency
-
-
-def calibrate(input_lines):
-    return 0
 
 
 if __name__ == "__main__":
