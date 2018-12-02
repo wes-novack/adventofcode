@@ -9,12 +9,7 @@ def read_file():
 def calculate_frequency(base_frequency, input_lines):
     new_frequency = int(base_frequency)
     for line in input_lines:
-        if line[0] == "+":
-            line_split = line.split("+")
-            new_frequency += int(line_split[1])
-        elif line[0] == "-":
-            line_split = line.split("-")
-            new_frequency -= int(line_split[1])
+        new_frequency += int(line)
     return new_frequency
 
 

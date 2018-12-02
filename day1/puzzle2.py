@@ -18,10 +18,7 @@ def calibrate(base, mylist, frequencies_visited):
             break
         else:
             frequencies_visited.append(current)
-        if "+" in frequency:
-            current = current + int(frequency)
-        elif "-" in frequency:
-            current = current + int(frequency)
+        current = current + int(frequency)
     return current, calibration, frequencies_visited
 
 
