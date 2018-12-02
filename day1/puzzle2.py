@@ -3,7 +3,7 @@ def read_file():
         input_lines = []
         for line in change_list:
             input_lines.append(line)
-        return input_lines
+    return input_lines
 
 
 def calibrate(base, mylist, frequencies_visited):
