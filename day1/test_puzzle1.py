@@ -8,13 +8,21 @@ def test_read_file():
 
 
 calculate_frequency_testdata = [
-    (["+3", "-2", "+4"], 5),
-    (["+20", "-100", "+60"], -20),
+    (["+1", "-1"], 0, 0),
+#    (["+3", "+3", "+4", "-2", "-4"], 4, 10),
+#    (["+3", "-2", "+4"], 5),
+#    (["+20", "-100", "+60"], -20),
 ]
 
-@pytest.mark.parametrize("list,expected", calculate_frequency_testdata)
-def test_calculate_frequency(list, expected):
-    input_lines = list
+@pytest.mark.parametrize("change_list,new_frequency,calibration_number", calculate_frequency_testdata)
+def test_calculate_frequency(change_list, new_frequency, calibration_number):
+    input_lines = change_list
     calculated_frequency = calculate_frequency(0, input_lines)
-    assert calculated_frequency == expected
+    assert calculated_frequency == new_frequency
 
+
+@pytest.mark.parametrize("change_list,new_frequency,calibration_number", calculate_frequency_testdata)
+def test_calibrate(change_list, new_frequency, calibration_number):
+    input_lines = change_list
+    calibration_number = calibrate(input_lines)
+    assert calibration_number == 0

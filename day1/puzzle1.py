@@ -24,6 +24,10 @@ def calculate_frequency(base_frequency, input_lines):
     return new_frequency
 
 
+def calibrate(input_lines):
+    return 0
+
+
 if __name__ == "__main__":
     input_lines = read_file()
     result = calculate_frequency(0, input_lines)
