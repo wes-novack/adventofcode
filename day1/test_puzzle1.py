@@ -9,4 +9,5 @@ def test_read_file():
 
 def test_calculate_frequency():
     input_lines = ["+3", "-2", "+4"]
-    assert calculate_frequency(input_lines) == 5
+    calculated_frequency = calculate_frequency(0, input_lines)
+    assert calculated_frequency == 5

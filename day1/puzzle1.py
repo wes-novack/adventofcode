@@ -9,8 +9,19 @@ def read_file():
         print("Exception opening file!")
 
 
-def calculate_frequency(input_lines):
-    return 5
+def calculate_frequency(base_frequency, input_lines):
+    new_frequency = int(base_frequency)
+    for line in input_lines:
+        if line[0] == "+":
+            line_split = line.split("+")
+            new_frequency += int(line_split[1])
+        elif line[0] == "-":
+            line_split = line.split("-")
+            new_frequency -= int(line_split[1])
+        else:
+            print("No + or - character detected at start of line")
+    print("new_frequency = {}".format(new_frequency))
+    return new_frequency
 
 
 def __init__():
