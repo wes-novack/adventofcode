@@ -1,12 +1,9 @@
 def read_file():
-    try:
-        with open("input.txt") as change_list:
-            input_lines = []
-            for line in change_list:
-                input_lines.append(line)
-            return input_lines
-    except Exception:
-        print("Exception: {}".format(Exception))
+    with open("input.txt") as change_list:
+        input_lines = []
+        for line in change_list:
+            input_lines.append(line)
+        return input_lines
 
 
 def calibrate(base, mylist, frequencies_visited):
