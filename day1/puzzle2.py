@@ -10,16 +10,15 @@ def read_file():
 
 
 def calibrate(base, mylist, frequencies_visited):
-    current = base
     calibration = None
     for frequency in mylist:
-        if current in frequencies_visited:
-            calibration = current
+        if base in frequencies_visited:
+            calibration = base
             break
         else:
-            frequencies_visited.append(current)
-        current = current + int(frequency)
-    return current, calibration, frequencies_visited
+            frequencies_visited.append(base)
+        base = base + int(frequency)
+    return base, calibration, frequencies_visited
 
 
 def check_calibration(mylist):
