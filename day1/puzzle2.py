@@ -1,6 +1,3 @@
-calculated_frequencies = []
-
-
 def read_file():
     try:
         with open("input.txt") as change_list:
@@ -12,45 +9,31 @@ def read_file():
         print("Exception: {}".format(Exception))
 
 
-def calibrate(base_frequency, change_list):
-    base = base_frequency
-    calibrated = False
-    while not calibrated:
-        calibrated, new_frequency = process_change_list(calibrated, change_list, base)
-        base = new_frequency
-    return new_frequency
-
-
-def process_change_list(calibrated, change_list, new_frequency):
-    for line in change_list:
-        if line[0] == "+":
-            line_split = line.split("+")
-            new_frequency += int(line_split[1])
-            if new_frequency in calculated_frequencies:
-                print("new_frequency: {}".format(new_frequency))
-                calibrated = True
-                break
-            else:
-                calculated_frequencies.append(new_frequency)
-                print(calculated_frequencies)
-                calibrated = False
-        elif line[0] == "-":
-            line_split = line.split("-")
-            new_frequency -= int(line_split[1])
-            if new_frequency in calculated_frequencies:
-                print("new_frequency: {}".format(new_frequency))
-                calibrated = True
-                break
-            else:
-                calculated_frequencies.append(new_frequency)
-                print(calculated_frequencies)
-                calibrated = False
+def calibrate(base, mylist, frequencies_visited):
+    current = base
+    for frequency in mylist:
+        if current in frequencies_visited:
+            calibration = current
+            break
         else:
-            print("No + or - character detected at start of line")
-    return calibrated, new_frequency
+            frequencies_visited.append(current)
+            calibration = None
+        if "+" in frequency:
+            current = current + int(frequency)
+        elif "-" in frequency:
+            current = current + int(frequency)
+    return current, calibration, frequencies_visited
+
+
+def check_calibration(mylist):
+    no_visits = []
+    current, calibration, frequencies_visited = calibrate(0, mylist, no_visits)
+    while calibration is None:
+        current, calibration, frequencies_visited = calibrate(current, mylist, frequencies_visited)
+    return calibration
 
 
 if __name__ == "__main__":
     change_list = read_file()
-    result = calibrate(0, change_list)
+    result = check_calibration(change_list)
     print(result)

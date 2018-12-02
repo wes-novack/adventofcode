@@ -9,11 +9,12 @@ def test_read_file():
 
 calibrate_testdata = [
     (["+1", "-1"], 0),
-#    (["+3", "+3", "+4", "-2", "-4"], 10),
+    (["+3", "+3", "+4", "-2", "-4"], 10),
+    (["-6", "+3", "+8", "+5", "-6"], 5),
 ]
 
 
 @pytest.mark.parametrize("operator_list,calibration", calibrate_testdata)
 def test_calibrate(operator_list, calibration):
-    calibration_result = calibrate(0, operator_list)
+    calibration_result = check_calibration(operator_list)
     assert calibration_result == calibration
