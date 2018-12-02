@@ -7,7 +7,14 @@ def test_read_file():
     assert len(input_lines) > 0
 
 
-def test_calculate_frequency():
-    input_lines = ["+3", "-2", "+4"]
+calculate_frequency_testdata = [
+    (["+3", "-2", "+4"], 5),
+    (["+20", "-100", "+60"], -20),
+]
+
+@pytest.mark.parametrize("list,expected", calculate_frequency_testdata)
+def test_calculate_frequency(list, expected):
+    input_lines = list
     calculated_frequency = calculate_frequency(0, input_lines)
-    assert calculated_frequency == 5
+    assert calculated_frequency == expected
+
