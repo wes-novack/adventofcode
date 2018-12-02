@@ -12,6 +12,7 @@ calculate_frequency_testdata = [
     (["+20", "-100", "+60"], -20),
 ]
 
+
 @pytest.mark.parametrize("change_list,new_frequency", calculate_frequency_testdata)
 def test_calculate_frequency(change_list, new_frequency):
     input_lines = change_list
