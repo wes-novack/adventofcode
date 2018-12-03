@@ -1,2 +1,2 @@
 # adventofcode2018
-Code for https://adventofcode.com/2018
+Solutions for code puzzles found at https://adventofcode.com/2018
