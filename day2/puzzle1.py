@@ -7,9 +7,9 @@ def check_duplicate_chars(string):
             print(character_dict[letter])
         else:
             character_dict[letter] = 1
-    duplicate_letter_nums = []
+    duplicate_letter_nums = set()
     for k, v in character_dict.items():
         if v != 1:
-            duplicate_letter_nums.append(v)
+            duplicate_letter_nums.add(v)
     return duplicate_letter_nums
 
