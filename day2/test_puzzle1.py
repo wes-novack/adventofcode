@@ -11,3 +11,4 @@ check_duplicate_chars_testdata = [
 @pytest.mark.parametrize("id,output_set", check_duplicate_chars_testdata)
 def test_check_duplicate_chars(id, output_set):
     assert check_duplicate_chars(id) == output_set
+

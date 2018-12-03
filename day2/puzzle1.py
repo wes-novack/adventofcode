@@ -1,3 +1,7 @@
+twos = 0
+threes = 0
+
+
 def check_duplicate_chars(string):
     character_dict = {}
     for letter in string:
@@ -13,3 +17,26 @@ def check_duplicate_chars(string):
             duplicate_letter_nums.add(v)
     return duplicate_letter_nums
 
+
+def calculate_hash():
+    print("Twos: {}".format(twos))
+    print("Threes: {}".format(threes))
+    print("Hash = {}".format(twos * threes))
+
+
+def read_file():
+    with open("input.txt") as file:
+        ids = []
+        for line in file:
+            ids.append(line)
+        return ids
+
+
+if __name__ == "__main__":
+    ids = read_file()
+    for line in ids:
+        if 2 in check_duplicate_chars(line):
+            twos += 1
+        if 3 in check_duplicate_chars(line):
+            threes += 1
+    calculate_hash()
