@@ -1,19 +1,17 @@
-
-
 def check_duplicate_chars(string):
-    character_set = set()
-    match = 0
+    character_dict = {}
     has_two = False
     for letter in string:
-        if letter in character_set:
-            match += 1
+        if letter in character_dict:
+            character_dict[letter] += 1
+            print(letter)
+            print(character_dict[letter])
         else:
-            character_set.add(letter)
-        if match == 1:
+            character_dict[letter] = 1
+    for k, v in character_dict.items():
+        if v == 2:
             has_two = True
-            match = 0
     if has_two:
         return True
     else:
-        print(character_set, match)
         return False
