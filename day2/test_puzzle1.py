@@ -3,5 +3,5 @@ import pytest
 
 
 def test_check_duplicate_chars():
-    teststring = "abcddefgghijklmm"
-    assert check_duplicate_chars(teststring) == True
+    teststring = "abcddefghijklmooo"
+    assert check_duplicate_chars(teststring) == [2,3]
