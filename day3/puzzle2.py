@@ -34,12 +34,8 @@ def calc_coord_set(id, start_coords, size):
 
 if __name__ == "__main__":
     lines = read_file()
-
-    all_coordinates = {}
     coordinates_dict = {}
     coordinate_list = []
-    zero_overlap = []
-    list_counter = 0
     nonoverlapping_ids = []
     for line in lines:
         id, start_coords, size = assign_vars(line)
