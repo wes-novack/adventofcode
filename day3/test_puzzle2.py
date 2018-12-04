@@ -1,4 +1,4 @@
-from day3.puzzle2 import *
+from day3.puzzle2_hours_to_run import *
 import pytest
 
 
