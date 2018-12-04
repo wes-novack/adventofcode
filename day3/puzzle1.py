@@ -1,9 +1,9 @@
 def read_file():
     with open("input.txt") as file:
-        ids = []
+        claims = []
         for line in file:
-            ids.append(line)
-        return ids
+            claims.append(line)
+        return claims
 
 
 def assign_vars(string1):
@@ -26,12 +26,32 @@ def calc_coord_set(id, start_coords, size):
     for y in range(int(height)):
         x_index = 0
         for x in range(int(width)):
-            coordinates.append([start_x + x_index, int(start_y) - y_index])
+            coordinate_set = (start_x + x_index, int(start_y) - y_index)
+            coordinates.append(coordinate_set)
             x_index += 1
         y_index += 1
     return coordinates
 
 
 if __name__ == "__main__":
-    id, start_coords, size = assign_vars("#1 @ 258,327: 19x22")
-    calc_coord_set(id, start_coords, size)
+    lines = read_file()
+
+    all_coordinates = {}
+    for line in lines:
+        coordinate_list = []
+        id, start_coords, size = assign_vars(line)
+        coordinates = calc_coord_set(id, start_coords, size)
+        for coordinate_set in coordinates:
+            coordinate_list.append(coordinate_set)
+        for coordinate in coordinate_list:
+            if coordinate in all_coordinates:
+                all_coordinates[coordinate] += 1
+            else:
+                all_coordinates[coordinate] = 1
+
+    two_or_more_overlap = 0
+    for key in all_coordinates:
+        if all_coordinates[key] >= 2:
+            two_or_more_overlap += 1
+
+    print(two_or_more_overlap)
