@@ -19,6 +19,5 @@ calc_cord_set_testdata = [
 
 @pytest.mark.parametrize("id, start_coords, size, result_list", calc_cord_set_testdata)
 def test_calc_coord_set(id, start_coords, size, result_list):
-    returned_id, coord_list = calc_coord_set(id, start_coords, size)
-    assert returned_id == id
+    coord_list = calc_coord_set(id, start_coords, size)
     assert coord_list == result_list

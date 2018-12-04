@@ -30,7 +30,7 @@ def calc_coord_set(id, start_coords, size):
             coordinates.append(coordinate_set)
             x_index += 1
         y_index += 1
-    return id, coordinates
+    return coordinates
 
 
 if __name__ == "__main__":
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     for line in lines:
         coordinate_list = []
         id, start_coords, size = assign_vars(line)
-        coordinates = calc_coord_set(id, start_coords, size)
+        id, coordinates = calc_coord_set(id, start_coords, size)
         for coordinate_set in coordinates:
             coordinate_list.append(coordinate_set)
         for coordinate in coordinate_list:
