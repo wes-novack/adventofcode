@@ -10,7 +10,6 @@ def read_file():
         for line in file:
             log_lines.append(line)
         log_lines.sort()
-        print(log_lines)
         return log_lines
 
 
