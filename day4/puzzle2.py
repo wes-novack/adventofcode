@@ -67,8 +67,6 @@ def most_popular_min_of_sleep_for_guard(guard_id, lines):
                     minute_dict[min] = 1
         else:
             guard_id_found = False
-
-
     most_popular_minute, mins_asleep = "", ""
     otherkey, othervalue = "", 0
     for k, v in minute_dict.items():
