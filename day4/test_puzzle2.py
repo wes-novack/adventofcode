@@ -25,5 +25,5 @@ def test_most_popular_min_of_sleep_for_guard():
     get_most_popular_min_for_each_guard(lines)
     guard_id, minute = get_most_sleep_on_unique_min(guards_sleep)
     print(int(guard_id)* minute)
-    assert guard_id == 137
-    assert intminute == 39
+    assert int(guard_id) == 137
+    assert minute == 39

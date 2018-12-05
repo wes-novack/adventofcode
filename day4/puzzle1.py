@@ -20,7 +20,6 @@ def find_guard_that_sleeps_most(lines):
     for line in lines:
         if 'begins shift' in line:
             guard_id = line.split()[3]
-            continue
         elif 'falls asleep' in line:
             time = re.search('\d{2}:\d{2}(?=] )',line)
             start_time = time.group(0).replace("00:", "")
@@ -51,7 +50,6 @@ def most_popular_min_of_sleep_for_guard(guard_id, lines):
     for line in lines:
         if guard_id in line:
             guard_id_found = True
-            continue
         elif 'falls asleep' in line and guard_id_found == True:
             time = re.search('\d{2}:\d{2}(?=] )',line)
             start_time = time.group(0).replace("00:", "")

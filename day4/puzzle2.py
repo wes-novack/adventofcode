@@ -44,8 +44,6 @@ def get_most_sleep_on_unique_min(guards_sleep):
             guard_id = k
             minute = v[1]
             minute_id = int(v[0])
-        else:
-            continue
     print(guard_id, minute_id)
     return guard_id, minute_id
 
@@ -56,7 +54,6 @@ def most_popular_min_of_sleep_for_guard(guard_id, lines):
     for line in lines:
         if guard_id in line:
             guard_id_found = True
-            continue
         elif 'falls asleep' in line and guard_id_found == True:
             time = re.search('\d{2}:\d{2}(?=] )',line)
             start_time = time.group(0).replace("00:", "")
