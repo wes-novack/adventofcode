@@ -2,15 +2,15 @@ from day5.puzzle1 import *
 import pytest
 
 
-#lines = read_file("input.txt")
+reduce_polymer_testdata = [
+    ("dabAcCaCBAcCcaDA","dabCBAcaDA"),
+    ("dabAcCaCBArcCRcaDA", "dabCBAcaDA"),
+    ("dDabAcCaCBArcCRcaDdaA", "abCBAca"),
+    ("dDabAcCaCBArcCRcaErDdaARe", "abCBAca"),
+    ("AdDabAcCaBCBArcCRcaErDdaARe", "CBAca"),
+]
 
 
-def test_reduce_polymer():
-    assert reduce_polymer("dabAcCaCBAcCcaDA") == "dabCBAcaDA"
-    assert reduce_polymer("dabAcCaCBArcCRcaDA") == "dabCBAcaDA"
-
-
-
-def test_string_to_list():
-    polymer_list = string_to_list("dabAcCaCBAcCcaDA")
-    assert len(polymer_list) == 16
+@pytest.mark.parametrize("polymer, new_polymer", reduce_polymer_testdata)
+def test_reduce_polymer(polymer, new_polymer):
+    assert reduce_polymer(polymer) == new_polymer
