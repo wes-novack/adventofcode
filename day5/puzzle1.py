@@ -1,5 +1,3 @@
-
-
 def read_file(filename):
     with open(filename) as file:
         input_polymer = file.readline()
@@ -34,7 +32,9 @@ def reduce_polymer(polymer):
             elements_to_delete = []
         else:
             marked_for_deletion = False
-    return polymer
+    strpolymer = ''.join(polymer)
+    strpolymer.replace('\n', '')
+    return strpolymer
 
 
 def delete_chars(elements_to_delete, polymer):
@@ -46,13 +46,6 @@ def delete_chars(elements_to_delete, polymer):
     for element in elements_to_delete:
         del polymer[element]
     return polymer
-
-
-def string_to_list(string):
-    polymer_list = []
-    for letter in string:
-        polymer_list.append(letter)
-    return polymer_list
 
 
 if __name__ == "__main__":

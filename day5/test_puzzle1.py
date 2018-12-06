@@ -7,6 +7,8 @@ import pytest
 
 def test_reduce_polymer():
     assert reduce_polymer("dabAcCaCBAcCcaDA") == "dabCBAcaDA"
+    assert reduce_polymer("dabAcCaCBArcCRcaDA") == "dabCBAcaDA"
+
 
 
 def test_string_to_list():
