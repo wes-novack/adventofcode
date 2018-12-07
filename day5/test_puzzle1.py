@@ -7,7 +7,7 @@ reduce_polymer_testdata = [
     ("dabAcCaCBArcCRcaDA", "dabCBAcaDA"),
     ("dDabAcCaCBArcCRcaDdaA", "abCBAca"),
     ("dDabAcCaCBArcCRcaErDdaARe", "abCBAca"),
-    ("AdDabAcCaBCBArcCRcaErDdaARe", "CBAca"),
+    ("AdDabAcCaBCBArcCRcaErDdaARepvZzVPAdDabAcCaBCBArcCRcaErDdaARepvZzVP", "CBAcaCBAca"),
 ]
 
 
