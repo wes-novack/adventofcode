@@ -35,7 +35,6 @@ def calc_coord_set(id, start_coords, size):
 
 if __name__ == "__main__":
     lines = read_file()
-
     all_coordinates = {}
     for line in lines:
         coordinate_list = []
@@ -48,10 +47,8 @@ if __name__ == "__main__":
                 all_coordinates[coordinate] += 1
             else:
                 all_coordinates[coordinate] = 1
-
     two_or_more_overlap = 0
     for key in all_coordinates:
         if all_coordinates[key] >= 2:
             two_or_more_overlap += 1
-
     print(two_or_more_overlap)
