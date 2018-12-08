@@ -45,7 +45,6 @@ if __name__ == "__main__":
                 coordinates_dict[coordinate_set] = 0
             else:
                 coordinates_dict[coordinate_set] += 1
-
     for line in lines:
         id, start_coords, size = assign_vars(line)
         coordinates = calc_coord_set(id, start_coords, size)
@@ -57,7 +56,6 @@ if __name__ == "__main__":
             elif coordinates_dict[coordinate_set] == 0 and nonoverlap is not False:
                 nonoverlap = True
                 continue
-
         if nonoverlap == True:
             nonoverlapping_ids.append(id)
     print(nonoverlapping_ids)
