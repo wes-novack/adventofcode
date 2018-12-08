@@ -1,6 +1,7 @@
 def read_file(filename):
     with open(filename) as file:
         input_polymer = file.readline()
+        input_polymer = input_polymer.replace("\n", "")
         return input_polymer
 
 
@@ -26,7 +27,6 @@ def reduce_polymer(polymer):
         else:
             marked_for_deletion = False
     strpolymer = ''.join(polymer)
-    strpolymer = strpolymer.replace('\n', '')
     return strpolymer
 
 
