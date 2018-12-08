@@ -21,7 +21,6 @@ def calc_coord_set(id, start_coords, size):
     start_y = (-1 * int(start_coords.split(",")[1].replace(":", ""))) - 1
     width = size.split("x")[0]
     height = size.split("x")[1]
-
     y_index = 0
     for y in range(int(height)):
         x_index = 0
