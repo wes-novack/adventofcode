@@ -51,7 +51,6 @@ def remove_units_find_smallest_reduction(units_found, input_polymer):
     for unit in units_found:
         unit_removed_polymer = remove_unit(unit, input_polymer)
         reduced_polymer = reduce_polymer(unit_removed_polymer)
-        #print(reduced_polymer)
         size = len(reduced_polymer)
         new_polymer_sizes.add(size)
     smallest = find_smallest_in_set(new_polymer_sizes)
@@ -59,19 +58,17 @@ def remove_units_find_smallest_reduction(units_found, input_polymer):
 
 
 def find_smallest_in_set(new_polymer_sizes):
-    print(new_polymer_sizes)
     smallest = min(new_polymer_sizes)
     return smallest
 
 
 def remove_unit(unit, input_polymer):
     polymer_to_loop = list(input_polymer)
-    print("Pre loop",len(polymer_to_loop))
     for (element, char) in enumerate(polymer_to_loop):
         if char.lower() == unit:
             del polymer_to_loop[element]
-    print("Post loop",len(polymer_to_loop))
-    return str(input_polymer)
+    strpolymer = ''.join(polymer_to_loop)
+    return strpolymer
 
 
 if __name__ == "__main__":
