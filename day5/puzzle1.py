@@ -6,35 +6,34 @@ def read_file(filename):
 
 
 def reduce_polymer(polymer):
+    list_polymer = list(polymer)
+    should_iterate = True
     elements_to_delete = []
-    marked_for_deletion = True
-    while marked_for_deletion:
-        element = 0
-        for char in polymer:
-            max_index = len(polymer) - 1
+    while should_iterate:
+        for (element, char) in enumerate(list_polymer):
+            max_index = len(list_polymer) - 1
             if element >= max_index:
                 break
-            next_char = polymer[element + 1]
             next_element = element + 1
+            next_char = list_polymer[next_element]
             if char.lower() == next_char.lower() and char != next_char:
-                elements_to_delete.append(element)
-                elements_to_delete.append(next_element)
-            else:
-                element += 1
+                if element - 1 not in elements_to_delete:
+                    elements_to_delete.append(element)
+                    elements_to_delete.append(next_element)
         if elements_to_delete:
-            polymer = delete_chars(elements_to_delete, polymer)
+            list_polymer = delete_chars(elements_to_delete, list_polymer)
             elements_to_delete = []
         else:
-            marked_for_deletion = False
-    strpolymer = ''.join(polymer)
-    return strpolymer
+            should_iterate = False
+    reduced_polymer = ''.join(list_polymer)
+    return reduced_polymer
 
 
 def delete_chars(elements_to_delete, polymer):
     elements_to_delete.reverse()
     polymer = list(polymer)
     for element in elements_to_delete:
-        del polymer[element]
+        polymer.pop(element)
     return polymer
 
 
