@@ -18,3 +18,4 @@ def test_find_guard_that_sleeps_most():
 
 def test_most_popular_min_of_sleep_for_guard():
     assert most_popular_min_of_sleep_for_guard("#3251", lines) == 33
+

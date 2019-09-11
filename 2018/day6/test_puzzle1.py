@@ -8,3 +8,4 @@ def test_solve_puzzle():
 
 
 def determine_outer_coords():
+    pass
