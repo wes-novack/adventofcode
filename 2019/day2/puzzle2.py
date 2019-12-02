@@ -8,11 +8,9 @@ def find_inputs(output, input_range, intcodes):
     for noun in input_range:
         working_intcodes = intcodes.copy()
         working_intcodes[1] = noun
-        print("noun: " + str(noun))
         for verb in input_range:
             verb_intcodes = working_intcodes.copy()
             verb_intcodes[2] = verb
-            print("verb: " + str(verb))
             result = calculate_intcode(verb_intcodes)
             if result[0] == output:
                 return noun, verb
