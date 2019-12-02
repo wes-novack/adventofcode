@@ -12,7 +12,7 @@ def calculate_intcode(intcodes):
 def determine_opcode(intcodes):
     position = 0
     length = len(intcodes)
-    while position < length:
+    while position < (length-1):
         opcode = intcodes[position]
         if opcode == 1:
             newlist = [intcodes[position], intcodes[position + 1], intcodes[position + 2], intcodes[position + 3]]
