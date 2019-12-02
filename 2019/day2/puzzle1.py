@@ -15,13 +15,14 @@ def determine_opcode(intcodes):
     while position < (length-1):
         opcode = intcodes[position]
         if opcode == 1:
-            newlist = [intcodes[position], intcodes[position + 1], intcodes[position + 2], intcodes[position + 3]]
+            newlist = intcodes[position:position + 4]
+            print([intcodes[position:(position + 4)]])
             sum = intcodes[newlist[1]] + intcodes[newlist[2]]
             intcodes[newlist[3]] = sum
         elif opcode == 2:
-            newlist = [intcodes[position], intcodes[position + 1], intcodes[position + 2], intcodes[position + 3]]
+            newlist = intcodes[position:position+4]
             multiplier = intcodes[newlist[1]] * intcodes[newlist[2]]
-            intcodes[newlist[3]] = multiplier    
+            intcodes[newlist[3]] = multiplier
         elif opcode == 99:
             break
         else:
