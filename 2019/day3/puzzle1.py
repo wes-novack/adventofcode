@@ -57,4 +57,4 @@ def calc_coords(wire):
 if __name__ == "__main__":
     intcodes = read_file()
     result = calculate_manhattan_distance
-    print(result[0])
+    print(result)
