@@ -1,7 +1,6 @@
 def read_file():
     with open("input.txt") as input:
-        intcodes = input.readline().split(",")
-        intcodes = [int(x) for x in intcodes]
+        intcodes = input.readlines()
     return intcodes
 
 
@@ -11,9 +10,15 @@ def calculate_manhattan_distance(wire1,wire2):
     elif wire1 == "R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51" and wire2 == "U98,R91,D20,R16,D67,R40,U7,R15,U6,R7":
         return 135
     else:
-        intersections = calculate_intersections(wire1,wire2)
-        manhattan_distance = calculate_shortest_distance(intersections)
+        intersections, steps_length = calculate_intersections(wire1,wire2)
+        #manhattan_distance = calculate_shortest_distance(intersections)
+        manhattan_distance = calculate_shortest_steps(intersections, steps_length)
         return manhattan_distance
+
+
+def calculate_shortest_steps(intersections, steps_length):
+    shortest_steps_coordinates = intersections[steps_length.index(min(steps_length))]
+    return shortest_steps_coordinates
 
 
 def calculate_shortest_distance(intersections):
@@ -29,10 +34,16 @@ def calculate_intersections(wire1,wire2):
     wire1_coordinates = calc_coords(wire1)
     wire2_coordinates = calc_coords(wire2)
     intersecting_coordinates = []
-    for coordinate in wire1_coordinates:
+    steps_length = []
+    for index, coordinate in enumerate(wire1_coordinates):
         if coordinate in wire2_coordinates:
+            if index + wire2_coordinates.index(coordinate) > 1:
+                print(index)
+                print(wire2_coordinates.index(coordinate))
+                steps_length.append(index + wire2_coordinates.index(coordinate))
+            print(steps_length)
             intersecting_coordinates.append(coordinate)
-    return intersecting_coordinates
+    return intersecting_coordinates, steps_length
 
 
 def calc_coords(wire):
@@ -56,5 +67,5 @@ def calc_coords(wire):
 
 if __name__ == "__main__":
     intcodes = read_file()
-    result = calculate_manhattan_distance
+    result = calculate_manhattan_distance(intcodes[0], intcodes[1])
     print(result)   

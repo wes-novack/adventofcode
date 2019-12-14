@@ -1,7 +1,7 @@
 def read_file():
     with open("input.txt") as input:
-        intcodes = input.readline().split(",")
-        intcodes = [int(x) for x in intcodes]
+        intcodes = input.readlines()
+        print(intcodes)
     return intcodes
 
 
@@ -56,5 +56,5 @@ def calc_coords(wire):
 
 if __name__ == "__main__":
     intcodes = read_file()
-    result = calculate_manhattan_distance
+    result = calculate_manhattan_distance(intcodes[0], intcodes[1])
     print(result)   
