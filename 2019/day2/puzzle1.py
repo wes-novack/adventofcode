@@ -6,10 +6,6 @@ def read_file():
 
 
 def calculate_intcode(intcodes):
-    return determine_opcode(intcodes)
-
-
-def determine_opcode(intcodes):
     position = 0
     length = len(intcodes)
     while position < (length-1):
