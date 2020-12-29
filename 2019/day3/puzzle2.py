@@ -1,5 +1,5 @@
 def read_file():
-    with open("input.txt") as input:
+    with open("input2.txt") as input:
         intcodes = input.readlines()
     return intcodes
 
