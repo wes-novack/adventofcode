@@ -1,14 +1,6 @@
 from puzzle1 import *
 
 test_data = read_data("input_test_data.txt")
-test_data_v2 = read_data("input_test_data_v2.txt")
-
-def test_count_trees():
-    terrain_map = assign_coordinates(test_data)
-    height = len(test_data) - 1
-    actual = count_trees(1, 3, terrain_map, height)
-    expected = 7
-    assert actual == expected
 
 
 def test_count_trees():
