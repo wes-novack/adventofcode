@@ -22,6 +22,9 @@ def extract_passports(passports_file):
             else:
                 passports_list.append(passport)
                 passport = ""
+        passports_list.append(passport)
+    print(f"passports_list: {passports_list}")
+    print(f"len(passports_list): {len(passports_list)}")
     return passports_list
 
 
