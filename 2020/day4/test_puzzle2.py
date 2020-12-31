@@ -7,6 +7,9 @@ byr_passport3 = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1919 iyr:2017 ci
 byr_passport4 = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:2003 iyr:2017 cid:147 hgt:183cm"
 iyr_passport1 = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2021 cid:147 hgt:183cm"
 eyr_passport1 = "ecl:gry pid:860033327 eyr:2019 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm"
+hgt_passport1 = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183mm"
+hgt_passport2 = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:194cm"
+hgt_passport3 = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:58in"
 
 
 def test_valid_fields_byr_valid():
@@ -41,5 +44,23 @@ def test_valid_fields_iyr_invalid():
 
 def test_valid_fields_eyr_invalid():
     actual = valid_fields(eyr_passport1)
+    expected = False
+    assert actual == expected
+
+
+def test_valid_fields_hgt_invalid():
+    actual = valid_fields(hgt_passport1)
+    expected = False
+    assert actual == expected
+
+
+def test_valid_fields_hgt_invalid_v2():
+    actual = valid_fields(hgt_passport2)
+    expected = False
+    assert actual == expected
+
+
+def test_valid_fields_hgt_invalid_v3():
+    actual = valid_fields(hgt_passport3)
     expected = False
     assert actual == expected
