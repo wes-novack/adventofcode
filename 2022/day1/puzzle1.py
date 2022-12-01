@@ -11,7 +11,6 @@ def read_file():
             else:
                 calories += int(line)
                 elves[count] = calories
-
     return elves
 
 
