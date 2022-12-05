@@ -2,28 +2,19 @@ def read_file():
     with open("input.txt") as input_list:
         rucksacks = []
         for line in input_list:
-            rucksacks.append(line.strip())
+            midpoint = int(len(line)/2)
+            rucksacks.append([line[0:midpoint],line[midpoint:].strip()])
     return rucksacks
 
 
 def main():
     rucksacks = read_file()
     common_items = []
-    start = 0
-    batch_end = 3
-    batch_size = 3
-    rucksacks_batches = int(len(rucksacks)/batch_size)
-
-    for _ in range(rucksacks_batches):
-        batch = rucksacks[start:batch_end]
-        start += batch_size
-        batch_end += batch_size
-        for item in batch[0]:
-            if item in batch[1] and item in batch[2]:
+    for rucksack in rucksacks:
+        for item in rucksack[0]:
+            if item in rucksack[1]:
                 common_items.append(item)
                 break
-        
-    
     priority_sum = 0
     for item in common_items:
         if item.islower():

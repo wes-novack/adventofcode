@@ -21,6 +21,7 @@ def main():
         for item in batch[0]:
             if item in batch[1] and item in batch[2]:
                 common_items.append(item)
+                print(item)
                 break
         
     
